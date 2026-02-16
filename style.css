@@ -206,3 +206,8 @@ iframe {
   border-radius: 50%;
   border: 3px solid #333;
 }
+.log {
+  justify-content: center;
+  margin-left: 25px;
+}
+
