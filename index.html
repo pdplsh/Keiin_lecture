@@ -10,7 +10,6 @@
   <body>
     <header>
       <h1>Welcome to Sunghyun Lee's Space</h1>
-     
     </header>
 
     <div class="container">
@@ -25,6 +24,7 @@
           </li>
         </ul>
         <input type="button" value="login" id="login" />
+        <input type="button" value="logout" id="logout" />
       </nav>
       <main class="content" id="main-content">
         <iframe src="welcome.html" name="content-frame"></iframe>
@@ -65,10 +65,23 @@
      document
        .querySelector("#login")
        .addEventListener("click", signInWithGithub);
+     async function checkLogin() {
+       const authInfo = await client.auth.getSession();
+       const session = authInfo.data.session;
+       document.querySelector("#login").style.display = "none";
+       document.querySelector("#logout").style.display = "none";
+       if (session === null) {
+         document.querySelector("#login").style.display = "inline";
+       } else {
+         document.querySelector("#logout").style.display = "inline";
+       }
+     }
+     checkLogin();
    </script>
 
   </body>
 </html>
+
 
 
 
