@@ -50,32 +50,34 @@
     <script>
         const SUPABASE_URL = 'https://nynzqvazavclibaicymd.supabase.co';
         const SUPABASE_ANON_KEY = 'sb_publishable_2r8EkDOZhv_XdFK-OfRX-g_mvRCOAc-';
-        const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+        const { createClient } = supabase;
+        const client = createClient(supabaseUrl, supabaseKey);
 
-        const form = document.getElementById('contact-form');
-        form.addEventListener('submit', async (e) => {
-            e.preventDefault();
+        document.getElementById("contactForm").addEventListener("submit", async function(e) {
+          e.preventDefault();
 
-            const name = document.getElementById('name').value;
-            const age = document.getElementById('age').value;
-            const email = document.getElementById('email').value;
-            const comment = document.getElementById('comment').value;
+          const { error } = await client
+            .from("contacts")
+            .insert([
+              {
+                name: document.getElementById("name").value,
+                age: document.getElementById("age").value,
+                email: document.getElementById("email").value,
+                comment: document.getElementById("comment").value
+              }
+            ]);
 
-            const { data, error } = await supabase
-                .from('comment') 
-                .insert([{ name: name, age: age, email: email, comment: comment }]);
-
-            if (error) {
-                console.error('Error:', error);
-                alert('Fail to store!');
-            } else {
-                alert('Sucess to store!');
-                form.reset();
-            }
+          if (error) {
+            alert("Error: " + error.message);
+          } else {
+            alert("Data saved successfully!");
+            document.getElementById("contactForm").reset();
+          }
         });
     </script>
   </body>
 </html>
+
 
 
 
