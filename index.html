@@ -65,6 +65,7 @@
      document
        .querySelector("#login")
        .addEventListener("click", signInWithGithub);
+     
      async function checkLogin() {
        const authInfo = await client.auth.getSession();
        const session = authInfo.data.session;
@@ -77,10 +78,17 @@
        }
      }
      checkLogin();
+     async function signOut() {
+       const { error } = await client.auth.signOut();
+       checkLogin();
+     }
+     document.querySelector("#logout").addEventListener("click", signOut);
+
    </script>
 
   </body>
 </html>
+
 
 
 
