@@ -48,8 +48,8 @@
       </form>
     </section>    
    <script>
-     const supabaseUrl = YOUR SUPABASEURL;
-     const supabaseKey = YOUR SUPABASE ANON KEY
+     const supabaseUrl = 'https://nynzqvazavclibaicymd.supabase.co';
+     const supabaseKey = 'sb_publishable_2r8EkDOZhv_XdFK-OfRX-g_mvRCOAc-';
      const client = supabase.createClient(supabaseUrl, supabaseKey);
 
 
@@ -57,7 +57,7 @@
        const { data, error } = await client.auth.signInWithOAuth({
          provider: "github",
          options: {
-           redirectTo: "http://localhost:8000",
+           redirectTo: "https://pdplsh.github.io/Keiin_lecture/",
          },
        });
      }
@@ -68,6 +68,7 @@
 
   </body>
 </html>
+
 
 
 
