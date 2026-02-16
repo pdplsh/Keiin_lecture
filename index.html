@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Personal Homepage</title>
     <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   </head>
   <body>
     <header>
@@ -32,19 +33,48 @@
       <h3>Contact Me</h3>
       <form id="contact-form">
         <div class="form-row">
-          <input type="text" placeholder="Full Name" required />
-          <input type="number" placeholder="Age" required />
+          <input type="text" id="name" placeholder="Full Name" required />
+          <input type="number" id="age"placeholder="Age" required />
         </div>
         <div class="form-row">
-          <input type="email" placeholder="Email Address" required />
+          <input type="email" id="email placeholder="Email Address" required />
         </div>
         <textarea
-          placeholder="Write your questions or comments here..."
+          id="comment" placeholder="Write your questions or comments here..."
           rows="5"
         ></textarea>
         <button type="submit">Submit Message</button>
       </form>
     </section>
+
+    <script>
+        const SUPABASE_URL = 'https://nynzqvazavclibaicymd.supabase.co';
+        const SUPABASE_ANON_KEY = 'sb_publishable_2r8EkDOZhv_XdFK-OfRX-g_mvRCOAc-';
+        const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+        const form = document.getElementById('contact-form');
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const age = document.getElementById('age').value;
+            const email = document.getElementById('email').value;
+            const comment = document.getElementById('comment').value;
+
+            const { data, error } = await supabase
+                .from('comment') 
+                .insert([{ name: name, age: age, email: email, comment: comment }]);
+
+            if (error) {
+                console.error('Error:', error);
+                alert('Fail to store!');
+            } else {
+                alert('Sucess to store!');
+                form.reset();
+            }
+        });
+    </script>
   </body>
 </html>
+
 
