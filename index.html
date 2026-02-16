@@ -10,6 +10,7 @@
   <body>
     <header>
       <h1>Welcome to Sunghyun Lee's Space</h1>
+      <input type="button" value="login" id="login" />
     </header>
 
     <div class="container">
@@ -46,37 +47,28 @@
         <button type="submit">Submit Message</button>
       </form>
     </section>    
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script>
-        const SUPABASE_URL = 'https://nynzqvazavclibaicymd.supabase.co';
-        const SUPABASE_ANON_KEY = 'sb_publishable_2r8EkDOZhv_XdFK-OfRX-g_mvRCOAc-';
-        const { createClient } = supabase;
-        const client = createClient(supabaseUrl, supabaseKey);
+   <script>
+     const supabaseUrl = YOUR SUPABASEURL;
+     const supabaseKey = YOUR SUPABASE ANON KEY
+     const client = supabase.createClient(supabaseUrl, supabaseKey);
 
-        document.getElementById("contactForm").addEventListener("submit", async function(e) {
-          e.preventDefault();
 
-          const { error } = await client
-            .from("contacts")
-            .insert([
-              {
-                name: document.getElementById("name").value,
-                age: document.getElementById("age").value,
-                email: document.getElementById("email").value,
-                comment: document.getElementById("comment").value
-              }
-            ]);
+     async function signInWithGithub() {
+       const { data, error } = await client.auth.signInWithOAuth({
+         provider: "github",
+         options: {
+           redirectTo: "http://localhost:8000",
+         },
+       });
+     }
+     document
+       .querySelector("#login")
+       .addEventListener("click", signInWithGithub);
+   </script>
 
-          if (error) {
-            alert("Error: " + error.message);
-          } else {
-            alert("Data saved successfully!");
-            document.getElementById("contactForm").reset();
-          }
-        });
-    </script>
   </body>
 </html>
+
 
 
 
