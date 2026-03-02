@@ -25,9 +25,10 @@
         <button type="submit">Submit Message</button>
       </form>
     </section>
+    <script>
     const supabaseUrl = 'https://nynzqvazavclibaicymd.supabase.co';
-      const supabaseKey = 'sb_publishable_2r8EkDOZhv_XdFK-OfRX-g_mvRCOAc-';
-      const client = supabase.createClient(supabaseUrl, supabaseKey);
+    const supabaseKey = 'sb_publishable_2r8EkDOZhv_XdFK-OfRX-g_mvRCOAc-';
+    const client = supabase.createClient(supabaseUrl, supabaseKey);
 
       async function signInWithGithub() {
         const { data, error } = await client.auth.signInWithOAuth({
@@ -89,5 +90,6 @@
     </script>
   </body>
 </html>
+
 
 
