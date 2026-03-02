@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Personal Homepage</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <a href="index.html" class="home-btn">🏠 Home</a>
+      <h1><a href="index.html">Welcome to Sunghyun Lee's Space</a></h1>
+    </header>
+
+    <div class="container">
+      <nav class="sidebar">
+        <ul>
+          <li><a href="hobby.html" target="content-frame">My Hobbies</a></li>
+          <li>
+            <a href="to_do.html" target="content-frame">Monthly To-Do Lists</a>
+          </li>
+          <li>
+            <a href="video.html" target="content-frame">Featured Video</a>
+          </li>
+          <li>
+            <a href="picture.html" target="content-frame">Favorite Pictures</a>
+          </li>
+          <li>
+            <a href="contact.html" target="content-frame">Contact Me</a>
+          </li>
+        </ul>
+        <div class="log">
+          <input type="button" value="login" id="login" />
+          <input type="button" value="logout" id="logout" />
+        </div>
+      </nav>
+
+      <main class="content" id="main-content">
+        <iframe src="welcome.html" name="content-frame"></iframe>
+      </main>
+    </div>
+    <script src="search.js"></script>
+  </body>
+</html>

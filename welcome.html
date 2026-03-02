@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome</title>
+    <style>
+      .profile-img {
+        width: 150px;
+        border-radius: 50%;
+        border: 3px solid #333;
+      }
+      h2 {
+        margin-top: 30px;
+        color: #2c3e50;
+        border-left: 5px solid #2c3e50;
+        padding-left: 10px;
+        padding-top: 30px;
+      }
+
+      .section {
+        margin-bottom: 20px;
+      }
+
+      .item {
+        margin-bottom: 15px;
+      }
+
+      .highlight {
+        background-color: yellow;
+        font-weight: bold;
+      }
+    </style>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul id="itemList" class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="hobby.html"
+                >Hobby</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="to_do.html">Schedule</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Dropdown
+              </a>
+              <ul id="itemList" class="dropdown-menu">
+                <li><a class="dropdown-item" href="video">Video</a></li>
+                <li>
+                  <a class="dropdown-item" href="picture.html">Pictures</a>
+                </li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <a class="dropdown-item" href="contact.html">Contact me</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <form class="d-flex" role="search">
+            <input
+              class="form-control me-2"
+              type="search"
+              id="searchInput"
+              placeholder="Search"
+              aria-label="Search"
+            />
+            <button
+              onclick="highlightText()"
+              class="btn btn-outline-success"
+              type="submit"
+            >
+              Search
+            </button>
+            <button onclick="resetText()">Clear</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+    <div id="content_search">
+      <h2>Welcome!</h2>
+      <img src="Sunghyun_image.png" alt="Profile Picture" class="profile-img" />
+      <br />
+      <h2>Education and Qualifications</h2>
+
+      <div class="section">
+        <div class="item">
+          <strong>Pusan National University</strong><br />
+          Bachelor's course of Electrical Engineering
+          <span class="date">(March 1990 ~ February 1997)</span><br />
+          Master’s course of Electrical Engineering
+          <span class="date">(March 1997 ~ February 1999)</span><br />
+          Doctor’s course of Electrical Engineering
+          <span class="date">(March 1999 ~ February 2002)</span><br />
+          <strong>Major:</strong> Plasma Display Panel Technology
+        </div>
+      </div>
+
+      <!-- Work Experience -->
+      <h2>Work Experience</h2>
+
+      <div class="section">
+        <div class="item">
+          <strong>Post Doctoral Researcher Fellowship</strong>
+          <span class="date">(March 2002 ~ January 2004)</span>
+          <ul id="itemList">
+            <li>
+              The University of Toledo, Ohio, USA – Photovoltaic cell research
+            </li>
+          </ul>
+        </div>
+
+        <div class="item">
+          <strong>Senior Researcher, LG Electronics</strong>
+          <span class="date">(April 2004 ~ November 2005)</span>
+          <ul id="itemList">
+            <li>Plasma Display Panel Research Group</li>
+          </ul>
+        </div>
+
+        <div class="item">
+          <strong>Patent Examiner, Korean Intellectual Property Office</strong>
+          <span class="date">(December 2005 ~ Present)</span>
+          <ul id="itemList">
+            <li>Electronic Devices Examination Division</li>
+            <li>Imaging Devices Examination Division</li>
+            <li>Digital Broadcasting Devices Examination Division</li>
+            <li>Multimedia Broadcasting Devices Examination Division</li>
+            <li>Intelligent Robot Examination Division</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Registered Patents -->
+      <h2>Registered Patents</h2>
+
+      <ul id="itemList">
+        <li>
+          KR 10-0757571 : Plasma Display Panel with Differential Dielectric
+          Structure Having Boss
+        </li>
+        <li>KR 10-0379501 : Plasma Display Panel</li>
+        <li>KR 10-0359572 : Plasma Display Panel</li>
+        <li>KR 10-0452688 : Method for Driving Plasma Display Panel</li>
+        <li>
+          KR 10-0493912 : Apparatus and Method for Driving Plasma Display Panel
+        </li>
+      </ul>
+
+      <!-- Research Papers -->
+      <h2>Research Papers</h2>
+
+      <ul id="itemList">
+        <li>
+          Sputtered Cd<sup>x</sup>Zn<sup>x</sup>Te films for top junctions in
+          tandem solar cells, Solar Energy Materials & Solar Cells 86,
+          pp551-563, 2005
+        </li>
+        <li>
+          14% sputtered thin-films solar cells based on CdTe, Physica Status
+          Solidi(b) 241 No.3, pp779-782, 2004
+        </li>
+        <li>
+          Polycrystalline sputtered Cd(Zn, Mn)Te films for top cells in PV
+          tandem structures, Physica Status Solidi(c) 1 No.4, pp1042-1045, 2004
+        </li>
+        <li>
+          A new driving waveform to improve dark room contrast ratio in AC
+          plasma display panel, IEEE Transactions on Electron Devices, vol.49,
+          no.7, pp1143-1150, 2002
+        </li>
+        <li>
+          A modified ramp waveform to reduce reset period in AC plasma display
+          panel, IEEE Transactions on Electron Devices, vol.49, no.5, pp782-786,
+          2002
+        </li>
+        <li>
+          A Study on the New Type Sustaining Electrode Showing High Luminous
+          Efficiency in AC PDPs, IEEE Transactions on Electron Devices, vol.48,
+          no.10, pp2255-2259, 2001
+        </li>
+        <li>
+          Improvement of Addressing Time and its Dispersion in AC Plasma Display
+          Panel, IEEE Transactions on Electron Devices, vol.48, no.10,
+          pp2260-2265, 2001
+        </li>
+        <li>
+          A New Method to Reduce Addressing Time in a Large AC Plasma Display
+          Panel, IEEE Transactions on Electron Devices, vol.48, no.6,
+          pp1082-1086, 2001
+        </li>
+      </ul>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+    <script src="search.js"></script>
+  </body>
+</html>
