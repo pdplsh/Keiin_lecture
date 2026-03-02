@@ -12,13 +12,14 @@
       <h3>Contact Me</h3>
       <form id="contact-form">
         <div class="form-row">
-          <input type="text" placeholder="Full Name" required />
-          <input type="number" placeholder="Age" required />
+          <input type="text" id="name" placeholder="Full Name" required />
+          <input type="number" id="age" placeholder="Age" required />
         </div>
         <div class="form-row">
-          <input type="email" placeholder="Email Address" required />
+          <input type="email" id="email" placeholder="Email Address" required />
         </div>
         <textarea
+          id="comment"
           placeholder="Write your questions or comments here..."
           rows="5"
         ></textarea>
@@ -38,28 +39,6 @@
           },
         });
       }
-      document
-        .querySelector('#login')
-        .addEventListener('click', signInWithGithub);
-
-      async function checkLogin() {
-        const authInfo = await client.auth.getSession();
-        const session = authInfo.data.session;
-        document.querySelector('#login').style.display = 'none';
-        document.querySelector('#logout').style.display = 'none';
-        if (session === null) {
-          document.querySelector('#login').style.display = 'inline';
-        } else {
-          document.querySelector('#logout').style.display = 'inline';
-        }
-      }
-      checkLogin();
-      async function signOut() {
-        const { error } = await client.auth.signOut();
-        checkLogin();
-      }
-      document.querySelector('#logout').addEventListener('click', signOut);
-
       const form = document.getElementById('contact-form');
 
       form.addEventListener('submit', async (e) => {
@@ -90,6 +69,7 @@
     </script>
   </body>
 </html>
+
 
 
 
